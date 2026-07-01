@@ -63,7 +63,6 @@
   }
   body { display: flex; flex-direction: column; min-height: 100dvh; }
 
-  /* ── Header ── */
   .header {
     background: var(--purple);
     color: #fff;
@@ -83,7 +82,6 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* ── Tabs ── */
   .tab-content { display: none; flex: 1; overflow-y: auto; padding-bottom: calc(var(--nav-h) + var(--safe-bottom) + 8px); }
   .tab-content.active { display: block; }
 
@@ -103,7 +101,6 @@
   .nav-btn .nav-icon { font-size: 23px; }
   .nav-btn.active { color: var(--purple); }
 
-  /* ── Totals ── */
   .totals {
     display: grid; grid-template-columns: 1fr 1fr 1fr;
     gap: 10px; padding: 16px;
@@ -117,7 +114,6 @@
   .tc-sub   { font-size: 11px; color: var(--text-3); margin-top: 2px; }
   .total-card.jar .tc-val { color: var(--purple); }
 
-  /* ── Payout section ── */
   .payout-section { padding: 0 16px 16px; }
   .payout-card {
     background: var(--card); border-radius: var(--radius);
@@ -148,7 +144,6 @@
   .btn-payout:disabled { opacity: 0.4; cursor: default; }
   .btn-payout:not(:disabled):active { opacity: 0.85; }
 
-  /* ── Player cards ── */
   .section-head {
     display: flex; align-items: center; justify-content: space-between;
     padding: 4px 16px 8px;
@@ -203,7 +198,6 @@
   .tap-btn.add { background: var(--purple); border-color: var(--purple); color: #fff; font-size: 22px; }
   .tap-btn.add:active { background: var(--purple-dark); }
 
-  /* ── History ── */
   .history-wrap { padding: 16px; }
   .hist-section-title {
     font-size: 13px; font-weight: 600; color: var(--text-2);
@@ -231,7 +225,6 @@
   .day-amt  { font-weight: 600; color: var(--purple); }
   .hist-empty { text-align: center; color: var(--text-3); font-size: 14px; padding: 20px 0; }
 
-  /* ── Log ── */
   .log-wrap { padding: 16px; }
   .log-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
   .log-item {
@@ -244,7 +237,6 @@
   .li-meta { color: var(--text-3); font-size: 12px; text-align: right; }
   .log-empty { text-align: center; color: var(--text-3); font-size: 14px; padding: 24px 0; }
 
-  /* ── Modal base ── */
   .modal-bg {
     display: none; position: fixed; inset: 0;
     background: rgba(0,0,0,0.48); z-index: 100;
@@ -268,7 +260,6 @@
   .btn-danger  { background: var(--red);    color: #fff; }
   .btn-primary { background: var(--purple); color: #fff; }
 
-  /* ── Admin panel ── */
   .admin-offence-item {
     display: flex; align-items: center; gap: 10px;
     padding: 12px 0; border-bottom: 0.5px solid var(--border);
@@ -311,7 +302,6 @@
     cursor: pointer; margin-top: 4px; -webkit-tap-highlight-color: transparent;
   }
 
-  /* ── Pig celebration overlay ── */
   .pig-overlay {
     display: none; position: fixed; inset: 0;
     background: rgba(20, 10, 50, 0.75);
@@ -358,9 +348,7 @@
   </div>
 </div>
 
-<!-- ═══ HOME TAB ═══ -->
 <div class="tab-content active" id="tab-home">
-
   <div class="totals">
     <div class="total-card">
       <div class="tc-label">Raquel</div>
@@ -379,7 +367,6 @@
     </div>
   </div>
 
-  <!-- Payout -->
   <div class="payout-section">
     <div class="payout-card">
       <div class="deadline-banner">💳 Pay by <strong id="deadline-date">—</strong></div>
@@ -401,15 +388,12 @@
 
   <div class="section-head"><h2>Score tracker</h2></div>
   <div class="players" id="players-container"></div>
-
 </div>
 
-<!-- ═══ HISTORY TAB ═══ -->
 <div class="tab-content" id="tab-history">
   <div class="history-wrap" id="history-content"></div>
 </div>
 
-<!-- ═══ LOG TAB ═══ -->
 <div class="tab-content" id="tab-log">
   <div class="log-wrap">
     <ul class="log-list" id="log-list">
@@ -418,7 +402,6 @@
   </div>
 </div>
 
-<!-- ═══ BOTTOM NAV ═══ -->
 <nav class="bottom-nav">
   <button class="nav-btn active" id="nav-home" onclick="switchTab('home')">
     <span class="nav-icon">🏠</span>Home
@@ -431,7 +414,6 @@
   </button>
 </nav>
 
-<!-- ═══ RESET MODAL ═══ -->
 <div class="modal-bg" id="modal-reset" onclick="closeModalBg(event,'modal-reset')">
   <div class="modal">
     <div class="modal-handle"></div>
@@ -444,7 +426,6 @@
   </div>
 </div>
 
-<!-- ═══ ADMIN MODAL ═══ -->
 <div class="modal-bg" id="modal-admin" onclick="closeModalBg(event,'modal-admin')">
   <div class="modal">
     <div class="modal-handle"></div>
@@ -466,39 +447,27 @@
   </div>
 </div>
 
-<!-- ═══ PIG CELEBRATION ═══ -->
 <div class="pig-overlay" id="pig-overlay" onclick="closePig()">
   <div class="coins-layer" id="pig-coins"></div>
   <div class="pig-svg-wrap">
-    <!-- Cartoon pig SVG -->
     <svg viewBox="0 0 120 120" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-      <!-- Ears behind head -->
       <ellipse cx="33" cy="26" rx="14" ry="17" fill="#FFB7C5"/>
       <ellipse cx="87" cy="26" rx="14" ry="17" fill="#FFB7C5"/>
       <ellipse cx="33" cy="26" rx="9"  ry="11" fill="#F47CA0"/>
       <ellipse cx="87" cy="26" rx="9"  ry="11" fill="#F47CA0"/>
-      <!-- Body -->
       <ellipse cx="60" cy="84" rx="40" ry="30" fill="#FFB7C5"/>
-      <!-- Head -->
       <circle cx="60" cy="50" r="32" fill="#FFB7C5"/>
-      <!-- Swimming arms -->
       <ellipse cx="18" cy="74" rx="20" ry="9" fill="#FFB7C5" transform="rotate(-18 18 74)"/>
       <ellipse cx="102" cy="74" rx="20" ry="9" fill="#FFB7C5" transform="rotate(18 102 74)"/>
-      <!-- Snout -->
       <ellipse cx="60" cy="60" rx="16" ry="12" fill="#F47CA0"/>
-      <!-- Nostrils -->
       <circle cx="54" cy="62" r="4" fill="#C75580" opacity="0.85"/>
       <circle cx="66" cy="62" r="4" fill="#C75580" opacity="0.85"/>
-      <!-- Eyes -->
       <circle cx="48" cy="42" r="5.5" fill="#2d1b1b"/>
       <circle cx="72" cy="42" r="5.5" fill="#2d1b1b"/>
       <circle cx="49.5" cy="40.5" r="2.2" fill="#fff"/>
       <circle cx="73.5" cy="40.5" r="2.2" fill="#fff"/>
-      <!-- Smile -->
       <path d="M 50 70 Q 60 78 70 70" stroke="#C75580" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <!-- Curly tail -->
       <path d="M 98 82 Q 110 76 108 90 Q 116 85 111 98" stroke="#FFB7C5" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <!-- Trotters -->
       <ellipse cx="42" cy="109" rx="13" ry="8" fill="#F47CA0"/>
       <ellipse cx="78" cy="109" rx="13" ry="8" fill="#F47CA0"/>
     </svg>
@@ -509,53 +478,82 @@
   <div class="pig-dismiss">Tap anywhere to dismiss</div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
 <script>
-const STORAGE_KEY = 'oinky-v1';
 const NAMES = { r: 'Raquel', h: 'Juan' };
 
-function defaultState() {
-  return {
-    offences: [
-      { id: 'burp', label: 'Burps',     emoji: '💨', amount: 1 },
-      { id: 'fart', label: 'Farts',     emoji: '💨', amount: 1 },
-      { id: 'word', label: 'Bad words', emoji: '🤬', amount: 1 }
-    ],
-    counts: {
-      r: { burp: 0, fart: 0, word: 0 },
-      h: { burp: 0, fart: 0, word: 0 }
-    },
-    logs: [],     // { person, offId, label, emoji, time, date, dir, amount }
-    payments: []  // { date, r, h, total }
-  };
-}
+const firebaseConfig = {
+  apiKey: "AIzaSyCLDGsybhWLGCoMrfQ1bS2_ZhqbN1rYPBQ",
+  authDomain: "oinky-9d267.firebaseapp.com",
+  projectId: "oinky-9d267",
+  storageBucket: "oinky-9d267.firebasestorage.app",
+  messagingSenderId: "991864154670",
+  appId: "1:991864154670:web:5d4329a224e6d39b9f0dbf"
+};
 
-let state = loadState();
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore(app);
 
-function loadState() {
+let localData = {
+  offences: [
+    { id: 'burp', label: 'Burps',     emoji: '💨', amount: 1 },
+    { id: 'fart', label: 'Farts',     emoji: '💨', amount: 1 },
+    { id: 'word', label: 'Bad words', emoji: '🤬', amount: 1 }
+  ],
+  counts: { r: { burp: 0, fart: 0, word: 0 }, h: { burp: 0, fart: 0, word: 0 } },
+  logs: [],
+  payments: []
+};
+
+let firebaseReady = false;
+
+async function initFirebase() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return defaultState();
-    const parsed = JSON.parse(raw);
-    const s = { ...defaultState(), ...parsed };
-    // Ensure counts exist for every offence
-    s.offences.forEach(o => {
-      if (s.counts.r[o.id] == null) s.counts.r[o.id] = 0;
-      if (s.counts.h[o.id] == null) s.counts.h[o.id] = 0;
+    db.collection('offences').orderBy('createdAt').onSnapshot(snap => {
+      const offences = [];
+      snap.forEach(doc => { offences.push({ id: doc.id, ...doc.data() }); });
+      if (offences.length > 0) { localData.offences = offences; saveLocal(); renderHome(); }
     });
-    return s;
-  } catch(e) { return defaultState(); }
+
+    db.collection('counts').doc('current').onSnapshot(doc => {
+      if (doc.exists) { localData.counts = doc.data().counts || localData.counts; saveLocal(); renderHome(); }
+    });
+
+    const logsSnap = await db.collection('logs').orderBy('timestamp', 'desc').limit(100).get();
+    localData.logs = logsSnap.docs.map(d => d.data());
+
+    const paymentsSnap = await db.collection('payments').orderBy('timestamp', 'desc').get();
+    localData.payments = paymentsSnap.docs.map(d => d.data());
+
+    saveLocal();
+    firebaseReady = true;
+    renderHome();
+  } catch (err) {
+    console.error('Firebase init error:', err);
+    loadLocal();
+    firebaseReady = false;
+    renderHome();
+  }
 }
 
-function saveState() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+function saveLocal() {
+  try { localStorage.setItem('oinky-cache-v1', JSON.stringify(localData)); } catch(e) {}
 }
 
-// ── Helpers ──
+function loadLocal() {
+  try {
+    const saved = localStorage.getItem('oinky-cache-v1');
+    if (saved) localData = JSON.parse(saved);
+  } catch(e) {}
+}
+
 function playerFine(person) {
-  return state.offences.reduce((sum, o) => sum + (state.counts[person][o.id] || 0) * o.amount, 0);
+  return localData.offences.reduce((sum, o) => sum + (localData.counts[person][o.id] || 0) * o.amount, 0);
 }
 function playerOffenceCount(person) {
-  return state.offences.reduce((sum, o) => sum + (state.counts[person][o.id] || 0), 0);
+  return localData.offences.reduce((sum, o) => sum + (localData.counts[person][o.id] || 0), 0);
 }
 function fmtMoney(n) {
   return Number.isInteger(n) ? n + '€' : n.toFixed(2).replace('.', ',') + '€';
@@ -575,7 +573,6 @@ function fmtDate(str) {
   return dt.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'long' });
 }
 
-// ── Tabs ──
 let activeTab = 'home';
 function switchTab(tab) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -584,43 +581,56 @@ function switchTab(tab) {
   document.getElementById('nav-' + tab).classList.add('active');
   activeTab = tab;
   if (tab === 'history') renderHistory();
-  if (tab === 'log')     renderLog();
+  if (tab === 'log') renderLog();
 }
 
-// ── Inc / Dec ──
-function inc(person, offId) {
-  const off = state.offences.find(o => o.id === offId);
+async function inc(person, offId) {
+  const off = localData.offences.find(o => o.id === offId);
   if (!off) return;
-  state.counts[person][offId] = (state.counts[person][offId] || 0) + 1;
+  localData.counts[person][offId] = (localData.counts[person][offId] || 0) + 1;
   const now = new Date();
   const time = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
-  state.logs.unshift({ person, offId, label: off.label, emoji: off.emoji, time, date: todayStr(), dir: 1, amount: off.amount });
-  if (state.logs.length > 200) state.logs.pop();
-  saveState();
+  localData.logs.unshift({ person, offId, label: off.label, emoji: off.emoji, time, date: todayStr(), dir: 1, amount: off.amount, timestamp: now.getTime() });
+  if (localData.logs.length > 200) localData.logs.pop();
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('counts').doc('current').set({ counts: localData.counts });
+      await db.collection('logs').add({ person, offId, label: off.label, emoji: off.emoji, time, date: todayStr(), dir: 1, amount: off.amount, timestamp: now.getTime() });
+    } catch (err) { console.error('Error saving:', err); }
+  }
+
   renderHome();
-  // pop animation
   const el = document.getElementById(person + '-' + offId);
   if (el) { el.classList.remove('popped'); void el.offsetWidth; el.classList.add('popped'); }
 }
 
-function dec(person, offId) {
-  if ((state.counts[person][offId] || 0) <= 0) return;
-  const off = state.offences.find(o => o.id === offId);
+async function dec(person, offId) {
+  if ((localData.counts[person][offId] || 0) <= 0) return;
+  const off = localData.offences.find(o => o.id === offId);
   if (!off) return;
-  state.counts[person][offId]--;
+  localData.counts[person][offId]--;
   const now = new Date();
   const time = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
-  state.logs.unshift({ person, offId, label: off.label, emoji: off.emoji, time, date: todayStr(), dir: -1, amount: off.amount });
-  if (state.logs.length > 200) state.logs.pop();
-  saveState();
+  localData.logs.unshift({ person, offId, label: off.label, emoji: off.emoji, time, date: todayStr(), dir: -1, amount: off.amount, timestamp: now.getTime() });
+  if (localData.logs.length > 200) localData.logs.pop();
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('counts').doc('current').set({ counts: localData.counts });
+      await db.collection('logs').add({ person, offId, label: off.label, emoji: off.emoji, time, date: todayStr(), dir: -1, amount: off.amount, timestamp: now.getTime() });
+    } catch (err) { console.error('Error saving:', err); }
+  }
+
   renderHome();
 }
 
-// ── Render: Home ──
 function renderHome() {
   const totR = playerFine('r');
   const totH = playerFine('h');
-  const jar  = totR + totH;
+  const jar = totR + totH;
 
   document.getElementById('tot-r').textContent  = fmtMoney(totR);
   document.getElementById('tot-h').textContent  = fmtMoney(totH);
@@ -633,7 +643,6 @@ function renderHome() {
   document.getElementById('deadline-date').textContent = lastDayOfMonth();
   document.getElementById('btn-payout').disabled = (jar === 0);
 
-  // Player cards
   const container = document.getElementById('players-container');
   container.innerHTML = [
     buildPlayerCard('r', 'av-r'),
@@ -645,88 +654,51 @@ function buildPlayerCard(person, avatarClass) {
   const name = NAMES[person];
   const fine = playerFine(person);
   const initial = name[0];
-  const actions = state.offences.map(o => {
-    const cnt = state.counts[person][o.id] || 0;
+  const actions = localData.offences.map(o => {
+    const cnt = localData.counts[person][o.id] || 0;
     const amtLabel = o.amount !== 1 ? `<div class="action-amount">${fmtMoney(o.amount)} each</div>` : '';
-    return `
-      <div class="action-cell">
-        <div class="action-label">${o.emoji} ${o.label}</div>
-        ${amtLabel}
-        <div class="action-controls">
-          <button class="tap-btn" onclick="dec('${person}','${o.id}')" aria-label="Remove">−</button>
-          <span class="action-count" id="${person}-${o.id}">${cnt}</span>
-          <button class="tap-btn add" onclick="inc('${person}','${o.id}')" aria-label="Add">+</button>
-        </div>
-      </div>`;
+    return `<div class="action-cell"><div class="action-label">${o.emoji} ${o.label}</div>${amtLabel}<div class="action-controls"><button class="tap-btn" onclick="dec('${person}','${o.id}')" aria-label="Remove">−</button><span class="action-count" id="${person}-${o.id}">${cnt}</span><button class="tap-btn add" onclick="inc('${person}','${o.id}')" aria-label="Add">+</button></div></div>`;
   }).join('');
-  return `
-    <div class="player-card">
-      <div class="player-top">
-        <div class="player-info">
-          <div class="avatar ${avatarClass}">${initial}</div>
-          <div class="player-name">${name}</div>
-        </div>
-        <div class="player-fine">${fmtMoney(fine)}</div>
-      </div>
-      <div class="actions-row">${actions}</div>
-    </div>`;
+  return `<div class="player-card"><div class="player-top"><div class="player-info"><div class="avatar ${avatarClass}">${initial}</div><div class="player-name">${name}</div></div><div class="player-fine">${fmtMoney(fine)}</div></div><div class="actions-row">${actions}</div></div>`;
 }
 
-// ── Render: History ──
 function renderHistory() {
   const el = document.getElementById('history-content');
-  let html = '';
-
-  // Payments section
-  html += `<div class="hist-section-title">💳 Payments</div>`;
-  if (state.payments.length === 0) {
-    html += `<div class="hist-empty">No payments yet.</div>`;
+  let html = '<div class="hist-section-title">💳 Payments</div>';
+  if (localData.payments.length === 0) {
+    html += '<div class="hist-empty">No payments yet.</div>';
   } else {
-    state.payments.slice().reverse().forEach(p => {
-      html += `
-        <div class="payment-card">
-          <div class="payment-left">
-            <div class="pm-date">Paid ${p.date}</div>
-            <div class="pm-split">Raquel ${fmtMoney(p.r)} · Juan ${fmtMoney(p.h)}</div>
-          </div>
-          <div class="payment-right"><div class="pm-total">${fmtMoney(p.total)}</div></div>
-        </div>`;
+    localData.payments.slice().reverse().forEach(p => {
+      html += `<div class="payment-card"><div class="payment-left"><div class="pm-date">Paid ${p.date}</div><div class="pm-split">Raquel ${fmtMoney(p.r)} · Juan ${fmtMoney(p.h)}</div></div><div class="payment-right"><div class="pm-total">${fmtMoney(p.total)}</div></div></div>`;
     });
   }
 
-  // Daily activity section
-  html += `<div class="hist-section-title" style="margin-top:16px">📆 Daily Activity</div>`;
+  html += '<div class="hist-section-title" style="margin-top:16px">📆 Daily Activity</div>';
   const byDate = {};
-  state.logs.filter(l => l.dir === 1).forEach(l => {
+  localData.logs.filter(l => l.dir === 1).forEach(l => {
     if (!byDate[l.date]) byDate[l.date] = { r: 0, h: 0 };
     byDate[l.date][l.person] += l.amount;
   });
   const dates = Object.keys(byDate).sort().reverse();
   if (dates.length === 0) {
-    html += `<div class="hist-empty">No activity yet.</div>`;
+    html += '<div class="hist-empty">No activity yet.</div>';
   } else {
     dates.forEach(d => {
       const dr = byDate[d].r, dh = byDate[d].h;
-      html += `
-        <div class="day-card">
-          <div class="day-date">${fmtDate(d)}</div>
-          <div class="day-row"><span>Raquel</span><span class="day-amt">${fmtMoney(dr)}</span></div>
-          <div class="day-row"><span>Juan</span><span class="day-amt">${fmtMoney(dh)}</span></div>
-        </div>`;
+      html += `<div class="day-card"><div class="day-date">${fmtDate(d)}</div><div class="day-row"><span>Raquel</span><span class="day-amt">${fmtMoney(dr)}</span></div><div class="day-row"><span>Juan</span><span class="day-amt">${fmtMoney(dh)}</span></div></div>`;
     });
   }
 
   el.innerHTML = html;
 }
 
-// ── Render: Log ──
 function renderLog() {
   const el = document.getElementById('log-list');
-  if (state.logs.length === 0) {
+  if (localData.logs.length === 0) {
     el.innerHTML = '<li class="log-empty">No offences yet — good start! 🎉</li>';
     return;
   }
-  el.innerHTML = state.logs.slice(0, 60).map(l => {
+  el.innerHTML = localData.logs.slice(0, 60).map(l => {
     const action = l.dir === 1
       ? `<strong>${NAMES[l.person]}</strong> caught a ${l.emoji} ${l.label} <span style="color:var(--purple);font-weight:600">+${fmtMoney(l.amount)}</span>`
       : `<strong>${NAMES[l.person]}</strong> undo ${l.emoji} ${l.label} <span style="color:var(--text-3)">−${fmtMoney(l.amount)}</span>`;
@@ -734,8 +706,7 @@ function renderLog() {
   }).join('');
 }
 
-// ── Payout ──
-function doPayout() {
+async function doPayout() {
   const totR = playerFine('r');
   const totH = playerFine('h');
   const total = totR + totH;
@@ -743,24 +714,28 @@ function doPayout() {
 
   const now = new Date();
   const dateStr = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-  state.payments.push({ date: dateStr, r: totR, h: totH, total });
+  localData.payments.push({ date: dateStr, r: totR, h: totH, total, timestamp: now.getTime() });
 
-  // Reset counts
-  state.offences.forEach(o => {
-    state.counts.r[o.id] = 0;
-    state.counts.h[o.id] = 0;
+  localData.offences.forEach(o => {
+    localData.counts.r[o.id] = 0;
+    localData.counts.h[o.id] = 0;
   });
-  saveState();
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('counts').doc('current').set({ counts: localData.counts });
+      await db.collection('payments').add({ date: dateStr, r: totR, h: totH, total, timestamp: now.getTime() });
+    } catch (err) { console.error('Payout error:', err); }
+  }
+
   renderHome();
   showPig(totR, totH, total);
 }
 
-// ── Pig celebration ──
 function showPig(totR, totH, total) {
   document.getElementById('pig-total-msg').textContent = `🍯 ${fmtMoney(total)} into the jar!`;
-  document.getElementById('pig-paid-amounts').innerHTML = `
-    <div class="pig-paid-person"><div class="ppn">Raquel</div><div class="ppv">${fmtMoney(totR)}</div></div>
-    <div class="pig-paid-person"><div class="ppn">Juan</div><div class="ppv">${fmtMoney(totH)}</div></div>`;
+  document.getElementById('pig-paid-amounts').innerHTML = `<div class="pig-paid-person"><div class="ppn">Raquel</div><div class="ppv">${fmtMoney(totR)}</div></div><div class="pig-paid-person"><div class="ppn">Juan</div><div class="ppv">${fmtMoney(totH)}</div></div>`;
   spawnCoins();
   document.getElementById('pig-overlay').classList.add('open');
 }
@@ -780,13 +755,12 @@ function spawnCoins() {
     coin.textContent = emojis[Math.floor(Math.random() * emojis.length)];
     coin.style.left = (Math.random() * 100) + 'vw';
     coin.style.animationDuration = (1.5 + Math.random() * 2.5) + 's';
-    coin.style.animationDelay    = (Math.random() * 2) + 's';
-    coin.style.fontSize           = (16 + Math.random() * 18) + 'px';
+    coin.style.animationDelay = (Math.random() * 2) + 's';
+    coin.style.fontSize = (16 + Math.random() * 18) + 'px';
     container.appendChild(coin);
   }
 }
 
-// ── Admin ──
 function openAdmin() {
   renderAdminOffences();
   openModal('modal-admin');
@@ -794,41 +768,93 @@ function openAdmin() {
 
 function renderAdminOffences() {
   const el = document.getElementById('admin-offence-list');
-  el.innerHTML = state.offences.map((o, idx) => `
-    <div class="admin-offence-item">
-      <span class="aoi-emoji">${o.emoji}</span>
-      <span class="aoi-name">${o.label}</span>
-      <div class="aoi-amt-ctrl">
-        <button class="sm-btn" onclick="changeAmount(${idx}, -0.5)">−</button>
-        <span class="aoi-amt">${fmtMoney(o.amount)}</span>
-        <button class="sm-btn" onclick="changeAmount(${idx}, 0.5)">+</button>
-      </div>
-      ${state.offences.length > 1
-        ? `<button class="sm-btn del-btn" onclick="deleteOffence(${idx})" title="Delete">✕</button>`
-        : '<span style="width:28px"></span>'}
-    </div>`).join('');
+  el.innerHTML = localData.offences.map((o, idx) => `<div class="admin-offence-item"><span class="aoi-emoji">${o.emoji}</span><span class="aoi-name">${o.label}</span><div class="aoi-amt-ctrl"><button class="sm-btn" onclick="changeAmount(${idx}, -0.5)">−</button><span class="aoi-amt">${fmtMoney(o.amount)}</span><button class="sm-btn" onclick="changeAmount(${idx}, 0.5)">+</button></div>${localData.offences.length > 1 ? `<button class="sm-btn del-btn" onclick="deleteOffence(${idx})" title="Delete">✕</button>` : '<span style="width:28px"></span>'}</div>`).join('');
 }
 
-function changeAmount(idx, delta) {
-  const off = state.offences[idx];
+async function changeAmount(idx, delta) {
+  const off = localData.offences[idx];
   if (!off) return;
   off.amount = Math.max(0.5, Math.round((off.amount + delta) * 10) / 10);
-  saveState();
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('offences').doc(off.id).update({ amount: off.amount });
+    } catch (err) { console.error('Error updating:', err); }
+  }
+
   renderAdminOffences();
   renderHome();
 }
 
-function deleteOffence(idx) {
-  const off = state.offences[idx];
+async function deleteOffence(idx) {
+  const off = localData.offences[idx];
   if (!off) return;
-  state.offences.splice(idx, 1);
-  delete state.counts.r[off.id];
-  delete state.counts.h[off.id];
-  saveState();
+  localData.offences.splice(idx, 1);
+  delete localData.counts.r[off.id];
+  delete localData.counts.h[off.id];
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('offences').doc(off.id).delete();
+      await db.collection('counts').doc('current').set({ counts: localData.counts });
+    } catch (err) { console.error('Error deleting:', err); }
+  }
+
   renderAdminOffences();
   renderHome();
 }
 
+async function addOffence() {
+  const emoji = document.getElementById('new-emoji').value.trim() || '❓';
+  const label = document.getElementById('new-label').value.trim();
+  const amount = parseFloat(document.getElementById('new-amount').value) || 1;
+  if (!label) { document.getElementById('new-label').focus(); return; }
+
+  const id = label.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + Date.now();
+  const createdAt = new Date().getTime();
+  localData.offences.push({ id, label, emoji, amount, createdAt });
+  localData.counts.r[id] = 0;
+  localData.counts.h[id] = 0;
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('offences').doc(id).set({ label, emoji, amount, createdAt });
+      await db.collection('counts').doc('current').set({ counts: localData.counts });
+    } catch (err) { console.error('Error adding:', err); }
+  }
+
+  document.getElementById('add-form').classList.remove('open');
+  renderAdminOffences();
+  renderHome();
+}
+
+function openReset() { openModal('modal-reset'); }
+async function confirmReset() {
+  localData.counts = { r: {}, h: {} };
+  localData.logs = [];
+  localData.payments = [];
+  localData.offences.forEach(o => {
+    localData.counts.r[o.id] = 0;
+    localData.counts.h[o.id] = 0;
+  });
+  saveLocal();
+
+  if (firebaseReady) {
+    try {
+      await db.collection('counts').doc('current').set({ counts: localData.counts });
+    } catch (err) { console.error('Error resetting:', err); }
+  }
+
+  closeModal('modal-reset');
+  renderHome();
+}
+
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function closeModalBg(e, id) { if (e.target === document.getElementById(id)) closeModal(id); }
 function toggleAddForm() {
   const form = document.getElementById('add-form');
   form.classList.toggle('open');
@@ -839,51 +865,12 @@ function toggleAddForm() {
   }
 }
 
-function addOffence() {
-  const emoji  = document.getElementById('new-emoji').value.trim() || '❓';
-  const label  = document.getElementById('new-label').value.trim();
-  const amount = parseFloat(document.getElementById('new-amount').value) || 1;
-  if (!label) { document.getElementById('new-label').focus(); return; }
-
-  const id = label.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + Date.now();
-  state.offences.push({ id, label, emoji, amount });
-  state.counts.r[id] = 0;
-  state.counts.h[id] = 0;
-  saveState();
-  document.getElementById('add-form').classList.remove('open');
-  renderAdminOffences();
-  renderHome();
-}
-
-// ── Reset ──
-function openReset()   { openModal('modal-reset'); }
-function confirmReset() {
-  const fresh = defaultState();
-  state.counts   = fresh.counts;
-  state.logs     = [];
-  state.payments = [];
-  // keep offences as configured
-  state.offences.forEach(o => {
-    state.counts.r[o.id] = 0;
-    state.counts.h[o.id] = 0;
-  });
-  saveState();
-  closeModal('modal-reset');
-  renderHome();
-}
-
-// ── Modal helpers ──
-function openModal(id)  { document.getElementById(id).classList.add('open'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-function closeModalBg(e, id) { if (e.target === document.getElementById(id)) closeModal(id); }
-
-// ── Service worker ──
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
 
-// ── Init ──
-renderHome();
+loadLocal();
+initFirebase();
 </script>
 </body>
 </html>
