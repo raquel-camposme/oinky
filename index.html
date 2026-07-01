@@ -511,10 +511,11 @@ let firebaseReady = false;
 
 async function initFirebase() {
   try {
-    // Check if offences exist in Firestore
-    const offencesSnap = await db.collection('offences').get();
+    // Render immediately with localStorage data
+    renderHome();
 
-    // If no offences, bootstrap with defaults
+    // Bootstrap Firestore if empty
+    const offencesSnap = await db.collection('offences').get();
     if (offencesSnap.empty) {
       for (const o of localData.offences) {
         await db.collection('offences').doc(o.id).set({ label: o.label, emoji: o.emoji, amount: o.amount, createdAt: Date.now() });
@@ -522,7 +523,16 @@ async function initFirebase() {
       await db.collection('counts').doc('current').set({ counts: localData.counts });
     }
 
-    // Set up real-time listeners
+    // Load logs and payments once
+    const logsSnap = await db.collection('logs').orderBy('timestamp', 'desc').limit(100).get();
+    localData.logs = logsSnap.docs.map(d => d.data());
+
+    const paymentsSnap = await db.collection('payments').orderBy('timestamp', 'desc').get();
+    localData.payments = paymentsSnap.docs.map(d => d.data());
+
+    saveLocal();
+
+    // Set up real-time listeners for changes
     db.collection('offences').orderBy('createdAt').onSnapshot(snap => {
       const offences = [];
       snap.forEach(doc => { offences.push({ id: doc.id, ...doc.data() }); });
@@ -533,20 +543,10 @@ async function initFirebase() {
       if (doc.exists) { localData.counts = doc.data().counts || localData.counts; saveLocal(); renderHome(); }
     });
 
-    const logsSnap = await db.collection('logs').orderBy('timestamp', 'desc').limit(100).get();
-    localData.logs = logsSnap.docs.map(d => d.data());
-
-    const paymentsSnap = await db.collection('payments').orderBy('timestamp', 'desc').get();
-    localData.payments = paymentsSnap.docs.map(d => d.data());
-
-    saveLocal();
     firebaseReady = true;
-    renderHome();
   } catch (err) {
     console.error('Firebase init error:', err);
-    loadLocal();
     firebaseReady = false;
-    renderHome();
   }
 }
 
