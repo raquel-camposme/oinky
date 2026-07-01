@@ -478,8 +478,8 @@
   <div class="pig-dismiss">Tap anywhere to dismiss</div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-compat/app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-compat/firestore.js"></script>
 
 <script>
 const NAMES = { r: 'Raquel', h: 'Juan' };
@@ -493,8 +493,8 @@ const firebaseConfig = {
   appId: "1:991864154670:web:5d4329a224e6d39b9f0dbf"
 };
 
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(app);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 let localData = {
   offences: [
