@@ -1,0 +1,56 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="#7F77DD"/>
+
+  <!-- Jar body -->
+  <rect x="146" y="275" width="220" height="185" rx="22" fill="#E8D9A8"/>
+  <!-- Jar lid / neck -->
+  <rect x="168" y="248" width="176" height="36" rx="10" fill="#C9B47A"/>
+  <!-- Jar shine -->
+  <rect x="166" y="282" width="22" height="168" rx="11" fill="rgba(255,255,255,0.28)"/>
+  <!-- Jar outline -->
+  <rect x="146" y="275" width="220" height="185" rx="22" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="3"/>
+
+  <!-- Coins in jar -->
+  <circle cx="212" cy="418" r="22" fill="#F7C94A"/>
+  <circle cx="212" cy="418" r="22" fill="none" stroke="#D4A820" stroke-width="2"/>
+  <circle cx="260" cy="435" r="22" fill="#F7C94A"/>
+  <circle cx="260" cy="435" r="22" fill="none" stroke="#D4A820" stroke-width="2"/>
+  <circle cx="305" cy="415" r="22" fill="#F7C94A"/>
+  <circle cx="305" cy="415" r="22" fill="none" stroke="#D4A820" stroke-width="2"/>
+  <circle cx="230" cy="390" r="18" fill="#EDB83A"/>
+  <circle cx="278" cy="378" r="18" fill="#EDB83A"/>
+
+  <!-- Pig ears (behind head) -->
+  <ellipse cx="196" cy="234" rx="32" ry="38" fill="#FFB7C5"/>
+  <ellipse cx="316" cy="234" rx="32" ry="38" fill="#FFB7C5"/>
+  <ellipse cx="196" cy="234" rx="20" ry="25" fill="#F47CA0"/>
+  <ellipse cx="316" cy="234" rx="20" ry="25" fill="#F47CA0"/>
+
+  <!-- Pig head -->
+  <circle cx="256" cy="252" r="78" fill="#FFB7C5"/>
+
+  <!-- Arms over jar rim -->
+  <ellipse cx="166" cy="268" rx="34" ry="16" fill="#FFB7C5" transform="rotate(22 166 268)"/>
+  <ellipse cx="346" cy="268" rx="34" ry="16" fill="#FFB7C5" transform="rotate(-22 346 268)"/>
+
+  <!-- Snout -->
+  <ellipse cx="256" cy="276" rx="34" ry="25" fill="#F47CA0"/>
+  <!-- Nostrils -->
+  <circle cx="242" cy="278" r="8"  fill="#C75580" opacity="0.85"/>
+  <circle cx="270" cy="278" r="8"  fill="#C75580" opacity="0.85"/>
+
+  <!-- Eyes -->
+  <circle cx="226" cy="234" r="13" fill="#2d1b1b"/>
+  <circle cx="286" cy="234" r="13" fill="#2d1b1b"/>
+  <circle cx="230" cy="230" r="5"  fill="#fff"/>
+  <circle cx="290" cy="230" r="5"  fill="#fff"/>
+
+  <!-- Smile -->
+  <path d="M 232 294 Q 256 312 280 294" stroke="#C75580" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Little sparkles -->
+  <text x="72"  y="110" font-size="42" font-family="sans-serif">✨</text>
+  <text x="380" y="130" font-size="34" font-family="sans-serif">🪙</text>
+  <text x="90"  y="390" font-size="30" font-family="sans-serif">💛</text>
+</svg>
