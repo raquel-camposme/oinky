@@ -1,4 +1,4 @@
-const CACHE = 'oinky-v2';
+const CACHE = 'oinky-v3';
 const ASSETS = ['/', '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png', '/icons/pig-jar.svg'];
 
 self.addEventListener('install', e => {
