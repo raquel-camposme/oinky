@@ -2,14 +2,15 @@
   "name": "Oinky: House Education",
   "short_name": "Oinky",
   "description": "Track household offences and pay into the fine jar",
-  "start_url": "/",
+  "start_url": "/oinky/",
+  "scope": "/oinky/",
   "display": "standalone",
   "background_color": "#7F77DD",
   "theme_color": "#7F77DD",
   "orientation": "portrait",
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/icons/pig-jar.svg",  "sizes": "any",     "type": "image/svg+xml", "purpose": "any" }
+    { "src": "/oinky/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/oinky/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/oinky/icons/pig-jar.svg",  "sizes": "any",     "type": "image/svg+xml", "purpose": "any" }
   ]
 }
