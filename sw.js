@@ -1,5 +1,5 @@
-const CACHE = 'oinky-v3';
-const ASSETS = ['/', '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png', '/icons/pig-jar.svg'];
+const CACHE = 'oinky-v4';
+const ASSETS = ['./', './manifest.json', './icons/icon-192.png', './icons/icon-512.png', './icons/pig-jar.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS).catch(() => {})));
@@ -15,6 +15,6 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request).catch(() => caches.match('/')))
+    caches.match(e.request).then(cached => cached || fetch(e.request).catch(() => caches.match('./')))
   );
 });
