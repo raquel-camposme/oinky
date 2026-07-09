@@ -881,6 +881,20 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
 
+// Re-sync when app comes back into focus (iOS suspends PWA WebSocket in background)
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    db.collection('counts').doc('current').get().then(doc => {
+      if (doc.exists) { localData.counts = doc.data().counts || localData.counts; saveLocal(); renderHome(); }
+    }).catch(() => {});
+    db.collection('offences').orderBy('createdAt').get().then(snap => {
+      const offences = [];
+      snap.forEach(doc => { offences.push({ id: doc.id, ...doc.data() }); });
+      if (offences.length > 0) { localData.offences = offences; saveLocal(); renderHome(); }
+    }).catch(() => {});
+  }
+});
+
 loadLocal();
 initFirebase();
 </script>
